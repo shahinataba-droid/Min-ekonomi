@@ -1,0 +1,34 @@
+MIN EKONOMI — app-paket
+=======================
+
+Filerna här är en komplett app. Lägg upp dem på valfri gratis webbhotell-tjänst
+med https, öppna adressen i Chrome på mobilen och välj "Installera app"
+(eller menyn ⋮ -> "Lägg till på startskärmen").
+
+Efter installation:
+- egen ikon på hemskärmen
+- inget adressfält, egen ruta i appväxlaren
+- fungerar helt utan internet
+- data sparas på telefonen
+
+ENKLASTE VÄGEN (GitHub Pages, gratis):
+1. Skapa konto på github.com
+2. Nytt repository, kryssa i "Public"
+3. "Add file" -> "Upload files" -> dra in ALLA filer i den här mappen
+4. Settings -> Pages -> Source: "Deploy from a branch" -> branch "main", mapp "/ (root)" -> Save
+5. Efter ca 1 minut finns adressen under Settings -> Pages
+6. Öppna adressen i Chrome på mobilen -> Installera
+
+VILL DU HA EN RIKTIG APK-FIL?
+Gå till pwabuilder.com, klistra in adressen från steg 5, välj Android och
+ladda ner paketet. Det ger en installerbar apk-fil.
+
+FILER
+  index.html            startsidan
+  app.js                själva appen
+  sw.js                 gör att den fungerar offline
+  manifest.webmanifest  namn, ikon, helskärmsläge
+  icon-192.png          ikon
+  icon-512.png          ikon
+
+Alla filer måste ligga i samma mapp.
