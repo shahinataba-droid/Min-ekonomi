@@ -1,5 +1,8 @@
-// Service worker: gör appen installerbar och helt användbar utan nätverk.
-const CACHE = "min-ekonomi-v1";
+// Service worker: gör appen installerbar och användbar utan nätverk.
+// CACHE-namnet innehåller en kontrollsumma av app.js. När appen ändras ändras
+// den här filen också, vilket är signalen webblasaren behöver för att hämta
+// den nya versionen i stället för att servera den gamla ur cachen.
+const CACHE = "min-ekonomi-765d9b2ac7";
 const ASSETS = ["./", "./index.html", "./app.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", (e) => {
@@ -14,19 +17,28 @@ self.addEventListener("activate", (e) => {
   );
 });
 
-// Cache-first: appen startar direkt och fungerar i flygplansläge.
+// Appfilerna hämtas nätverk-först när det finns uppkoppling, så en ny version
+// slår igenom direkt. Utan nät faller den tillbaka på cachen.
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
-  e.respondWith(
-    caches.match(e.request).then((hit) => {
-      if (hit) return hit;
-      return fetch(e.request)
+  const url = new URL(e.request.url);
+  const isAppShell = url.origin === location.origin &&
+    (url.pathname.endsWith("/") || url.pathname.endsWith("index.html") || url.pathname.endsWith("app.js"));
+
+  if (isAppShell) {
+    e.respondWith(
+      fetch(e.request)
         .then((res) => {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
           return res;
         })
-        .catch(() => caches.match("./index.html"));
-    })
+        .catch(() => caches.match(e.request).then((hit) => hit || caches.match("./index.html")))
+    );
+    return;
+  }
+
+  e.respondWith(
+    caches.match(e.request).then((hit) => hit || fetch(e.request).catch(() => caches.match("./index.html")))
   );
 });
