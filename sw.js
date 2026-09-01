@@ -2,7 +2,7 @@
 // CACHE-namnet innehåller en kontrollsumma av app.js. När appen ändras ändras
 // den här filen också, vilket är signalen webblasaren behöver för att hämta
 // den nya versionen i stället för att servera den gamla ur cachen.
-const CACHE = "min-ekonomi-2ab3d0ce1c";
+const CACHE = "min-ekonomi-d768c45f93";
 const ASSETS = ["./", "./index.html", "./app.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", (e) => {
