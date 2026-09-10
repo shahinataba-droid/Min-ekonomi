@@ -2,8 +2,8 @@
 // CACHE-namnet innehåller en kontrollsumma av app.js. När appen ändras ändras
 // den här filen också, vilket är signalen webbläsaren behöver för att hämta
 // den nya versionen i stället för att servera den gamla ur cachen.
-const CACHE = "min-ekonomi-633ebc35d5";
-const ASSETS = ["./", "./index.html", "./app.js?v=633ebc35d5", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
+const CACHE = "min-ekonomi-7479742a2d";
+const ASSETS = ["./", "./index.html", "./app.js?v=7479742a2d", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
