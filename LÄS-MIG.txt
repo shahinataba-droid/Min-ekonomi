@@ -1,15 +1,8 @@
 MIN EKONOMI — app-paket
 =======================
 
-Filerna här är en komplett app. Lägg upp dem på valfri gratis webbhotell-tjänst
-med https, öppna adressen i Chrome på mobilen och välj "Installera app"
-(eller menyn ⋮ -> "Lägg till på startskärmen").
-
-Efter installation:
-- egen ikon på hemskärmen
-- inget adressfält, egen ruta i appväxlaren
-- fungerar helt utan internet
-- data sparas på telefonen
+Lägg upp filerna på valfri gratis webbhotell-tjänst med https, öppna adressen
+i Chrome på mobilen och välj "Installera app".
 
 ENKLASTE VÄGEN (GitHub Pages, gratis):
 1. Skapa konto på github.com
@@ -19,9 +12,9 @@ ENKLASTE VÄGEN (GitHub Pages, gratis):
 5. Efter ca 1 minut finns adressen under Settings -> Pages
 6. Öppna adressen i Chrome på mobilen -> Installera
 
-VILL DU HA EN RIKTIG APK-FIL?
-Gå till pwabuilder.com, klistra in adressen från steg 5, välj Android och
-ladda ner paketet. Det ger en installerbar apk-fil.
+VID UPPDATERING
+Ladda upp alla filer igen, de med samma namn ersätts. Kontrollera versionen
+längst ner i appens Inställningar.
 
 FILER
   index.html            startsidan
