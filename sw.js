@@ -1,8 +1,8 @@
 // Service worker: gör appen installerbar och användbar utan nätverk.
 // CACHE-namnet innehåller en kontrollsumma av app.js, vilket är signalen
 // webbläsaren behöver för att hämta en ny version i stället för den cachade.
-const CACHE = "min-ekonomi-837f7cd15c";
-const ASSETS = ["./", "./index.html", "./app.js?v=837f7cd15c", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
+const CACHE = "min-ekonomi-110b9e3203";
+const ASSETS = ["./", "./index.html", "./app.js?v=110b9e3203", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
